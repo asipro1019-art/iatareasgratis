@@ -9,130 +9,165 @@
         :root { --primary: #0f172a; --accent: #2563eb; --bg: #f8fafc; --text: #1e293b; }
         html { scroll-behavior: smooth; }
         body { font-family: 'Poppins', sans-serif; margin: 0; background: var(--bg); color: var(--text); line-height: 1.7; }
+        
         header { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); color: white; padding: 80px 20px; text-align: center; clip-path: polygon(0 0, 100% 0, 100% 95%, 0% 100%); }
+        header h1 { margin: 0; font-size: 3.5rem; font-weight: 700; }
+        
         nav { background: white; padding: 15px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
-        nav a { margin: 0 10px; text-decoration: none; color: var(--primary); font-weight: 600; font-size: 0.85rem; }
+        nav a { margin: 0 10px; text-decoration: none; color: var(--primary); font-weight: 600; font-size: 0.85rem; transition: 0.3s; }
+        nav a:hover { color: var(--accent); }
+
         .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+        
+        /* Grid de Artículos */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 60px; }
         .card { background: white; border-radius: 15px; padding: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.04); text-decoration: none; color: inherit; border-bottom: 4px solid var(--accent); transition: 0.3s; }
-        .card:hover { transform: translateY(-5px); }
-        .article-block { background: white; padding: 40px; border-radius: 20px; margin-top: 40px; box-shadow: 0 4px 10px rgba(0,0,0,0.02); }
-        .article-img { width: 100%; height: 350px; object-fit: cover; border-radius: 15px; margin: 20px 0; }
-        .ad-box { background: #f1f5f9; padding: 20px; text-align: center; border-radius: 10px; margin: 30px 0; border: 1px dashed #cbd5e1; color: #94a3b8; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+        
+        /* Bloques de Artículos */
+        .article-block { background: white; padding: 40px; border-radius: 20px; margin-top: 40px; box-shadow: 0 4px 10px rgba(0,0,0,0.02); border: 1px solid #f1f5f9; }
+        .article-block h2 { color: var(--primary); border-left: 5px solid var(--accent); padding-left: 15px; margin-bottom: 25px; }
+        .article-img { width: 100%; height: 400px; object-fit: cover; border-radius: 15px; margin: 20px 0; }
+        
+        .ad-box { background: #f1f5f9; padding: 30px; text-align: center; border-radius: 12px; margin: 40px 0; border: 1px dashed #cbd5e1; color: #94a3b8; font-weight: 600; }
+
         footer { background: var(--primary); color: white; text-align: center; padding: 60px 20px; margin-top: 80px; }
-        footer a { color: #3b82f6; text-decoration: none; }
+        footer a { color: #3b82f6; text-decoration: none; font-weight: 600; }
+
+        /* Banner de Cookies */
+        #cookie-banner { position: fixed; bottom: 0; left: 0; width: 100%; background: #1e293b; color: white; padding: 20px; text-align: center; z-index: 2000; box-shadow: 0 -5px 15px rgba(0,0,0,0.2); display: flex; flex-direction: column; align-items: center; }
+        #cookie-banner button { background: var(--accent); color: white; border: none; padding: 10px 30px; border-radius: 8px; font-weight: 700; cursor: pointer; margin-top: 10px; transition: 0.3s; }
+        #cookie-banner button:hover { background: #1d4ed8; }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>IA Tareas Gratis</h1>
-    <p>El portal definitivo con 13 guías para dominar la IA en tus estudios</p>
-</header>
-
-<nav>
-    <a href="#">INICIO</a>
-    <a href="#art1">ESTUDIANTES</a>
-    <a href="#art4">MATES</a>
-    <a href="#art5">IDIOMAS</a>
-    <a href="#art10">DISEÑO</a>
-    <a href="contacto.html">CONTACTO</a>
-</nav>
-
-<div class="container">
-    <div class="grid">
-        <a href="#art1" class="card"><h3>🎓 IA Estudiantes</h3><p>Organización y apuntes pro.</p></a>
-        <a href="#art2" class="card"><h3>✍️ Tareas con IA</h3><p>Resolución ética de dudas.</p></a>
-        <a href="#art3" class="card"><h3>📑 Resumir Textos</h3><p>Análisis de PDFs rápido.</p></a>
-        <a href="#art4" class="card"><h3>🔢 Matemáticas</h3><p>Resolución paso a paso.</p></a>
-        <a href="#art5" class="card"><h3>🌍 Idiomas</h3><p>Tutoría bilingüe 24/7.</p></a>
-        <a href="#art6" class="card"><h3>💻 Programación</h3><p>Aprende código con IA.</p></a>
+    <div id="cookie-banner">
+        <span>Utilizamos cookies para mejorar tu experiencia y mostrarte publicidad personalizada (Google AdSense).</span>
+        <button onclick="acceptCookies()">ACEPTAR COOKIES</button>
     </div>
 
-    <section id="art1" class="article-block">
-        <h2>1. IA para Estudiantes: Optimización Total</h2>
-        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80" class="article-img">
-        <p>La IA permite crear calendarios de estudio basados en la dificultad de tus materias. Usa herramientas como Notion IA o ChatGPT para desglosar temas complejos en pasos sencillos.</p>
-    </section>
+    <header>
+        <h1>IA Tareas Gratis</h1>
+        <p>13 Guías definitivas para estudiar mejor con Inteligencia Artificial</p>
+    </header>
 
-    <section id="art2" class="article-block">
-        <h2>2. Hacer Tareas de Forma Inteligente</h2>
-        <img src="https://images.unsplash.com/photo-1484417894907-623942c8ee29?auto=format&fit=crop&w=800&q=80" class="article-img">
-        <p>No pidas que hagan el trabajo por ti; pide una estructura. Aprende a usar prompts como "Actúa como un profesor y revisa la lógica de mi ensayo" para mejorar tus notas.</p>
-    </section>
+    <nav>
+        <a href="#">INICIO</a>
+        <a href="#art1">GUÍA PRO</a>
+        <a href="#art4">MATEMÁTICAS</a>
+        <a href="#art5">IDIOMAS</a>
+        <a href="#art10">DISEÑO</a>
+        <a href="contacto.html">CONTACTO</a>
+    </nav>
 
-    <section id="art3" class="article-block">
-        <h2>3. Resumen de Textos con IA</h2>
-        <img src="https://images.unsplash.com/photo-1512314889357-e157c22f938d?auto=format&fit=crop&w=800&q=80" class="article-img">
-        <p>Herramientas como ChatPDF te permiten "hablar" con tus libros. Extrae conclusiones clave y glosarios técnicos de documentos de más de 200 páginas en segundos.</p>
-    </section>
+    <div class="container">
+        <div class="ad-box">ZONA DE PUBLICIDAD (ADSENSE)</div>
 
-    <div class="ad-box">PUBLICIDAD ADSENSE</div>
+        <div class="grid">
+            <a href="#art1" class="card"><h3>🎓 Estudiantes</h3><p>Organiza tu vida académica con IA.</p></a>
+            <a href="#art2" class="card"><h3>✍️ Tareas</h3><p>Cómo redactar trabajos brillantes.</p></a>
+            <a href="#art3" class="card"><h3>📑 Resúmenes</h3><p>Análisis de documentos en segundos.</p></a>
+            <a href="#art4" class="card"><h3>🔢 Matemáticas</h3><p>Resolución de problemas paso a paso.</p></a>
+            <a href="#art5" class="card"><h3>🌍 Idiomas</h3><p>Aprende inglés hablando con la IA.</p></a>
+            <a href="#art6" class="card"><h3>💻 Programación</h3><p>Crea código y soluciona errores.</p></a>
+        </div>
 
-    <section id="art4" class="article-block">
-        <h2>4. Matemáticas y Física Avanzada</h2>
-        <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=800&q=80" class="article-img">
-        <p>Aprende a resolver integrales y problemas de cinemática entendiendo el procedimiento. La IA te explica el "por qué" de cada fórmula aplicada.</p>
-    </section>
+        <section id="art1" class="article-block">
+            <h2>1. IA para Estudiantes: El Tutor 24/7</h2>
+            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1000&q=80" class="article-img" alt="Estudiante">
+            <p>La inteligencia artificial permite personalizar el aprendizaje. Un estudiante puede pedirle a ChatGPT o Claude que actúe como un tutor experto en química orgánica, explicando conceptos como si fueran para un principiante.</p>
+        </section>
 
-    <section id="art5" class="article-block">
-        <h2>5. Dominio de Idiomas</h2>
-        <img src="https://images.unsplash.com/photo-1543165796-5426273eaec3?auto=format&fit=crop&w=800&q=80" class="article-img">
-        <p>Practica tu speaking con la voz de ChatGPT. Es el método más barato y efectivo para ganar fluidez en inglés o francés sin miedo a equivocarte.</p>
-    </section>
+        <section id="art2" class="article-block">
+            <h2>2. Cómo Hacer Tareas con Ética y Calidad</h2>
+            <img src="https://images.unsplash.com/photo-1484417894907-623942c8ee29?auto=format&fit=crop&w=1000&q=80" class="article-img" alt="Escritura">
+            <p>El truco no es que la IA escriba por ti, sino que te dé una estructura sólida. Pide un esquema de puntos clave y luego desarrolla cada uno con tu propio estilo de redacción.</p>
+        </section>
 
-    <section id="art6" class="article-block">
-        <h2>6. Programación y Algoritmos</h2>
-        <img src="https://images.unsplash.com/photo-1587620962725-abab7fe55159?auto=format&fit=crop&w=800&q=80" class="article-img">
-        <p>Si estás aprendiendo Python o Java, la IA puede ayudarte a encontrar errores (bugs) en tu código y explicarte cómo optimizar tus funciones.</p>
-    </section>
+        <section id="art3" class="article-block">
+            <h2>3. Resumen Inteligente de PDFs</h2>
+            <img src="https://images.unsplash.com/photo-1512314889357-e157c22f938d?auto=format&fit=crop&w=1000&q=80" class="article-img" alt="Libros">
+            <p>Con herramientas como ChatPDF, puedes subir un libro entero y preguntar: "¿Cuáles son las 5 conclusiones principales del capítulo 4?". Ahorra horas de lectura innecesaria.</p>
+        </section>
 
-    <section id="art7" class="article-block">
-        <h2>7. Historia y Narrativa</h2>
-        <img src="https://images.unsplash.com/photo-1461360346148-a02d59703b1c?auto=format&fit=crop&w=800&q=80" class="article-img">
-        <p>Entrevista a personajes históricos. Pide a la IA que simule ser Napoleón para entender sus motivaciones estratégicas en el campo de batalla.</p>
-    </section>
+        <div class="ad-box">ZONA DE PUBLICIDAD (ADSENSE)</div>
 
-    <section id="art8" class="article-block">
-        <h2>8. Preparación de Exámenes</h2>
-        <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80" class="article-img">
-        <p>Pega tus apuntes y pide: "Hazme un examen tipo test de 20 preguntas difícil". Es la mejor técnica de estudio activo conocida hasta hoy.</p>
-    </section>
+        <section id="art4" class="article-block">
+            <h2>4. Matemáticas y Física sin Dolor</h2>
+            <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=1000&q=80" class="article-img" alt="Ciencias">
+            <p>Modelos de visión como GPT-4o pueden "ver" tu foto de un problema de cálculo y explicarte cada paso de la derivada o integral, ayudándote a entender el proceso lógico.</p>
+        </section>
 
-    <section id="art9" class="article-block">
-        <h2>9. Presentaciones Visuales</h2>
-        <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=800&q=80" class="article-img">
-        <p>Usa herramientas como Gamma.app para convertir un texto plano en diapositivas profesionales con un diseño moderno y coherente.</p>
-    </section>
+        <section id="art5" class="article-block">
+            <h2>5. Dominio de Idiomas Extranjeros</h2>
+            <img src="https://images.unsplash.com/photo-1543165796-5426273eaec3?auto=format&fit=crop&w=1000&q=80" class="article-img" alt="Idiomas">
+            <p>Activa el modo voz de la IA y practica una conversación real en inglés. Te corregirá la pronunciación y te sugerirá palabras más naturales al instante.</p>
+        </section>
 
-    <section id="art10" class="article-block">
-        <h2>10. Arte y Diseño para Proyectos</h2>
-        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80" class="article-img">
-        <p>Genera imágenes únicas con DALL-E para ilustrar tus portadas. Olvídate de buscar fotos con copyright en Google Imágenes.</p>
-    </section>
+        <section id="art6" class="article-block">
+            <h2>6. Programación y Desarrollo</h2>
+            <img src="https://images.unsplash.com/photo-1587620962725-abab7fe55159?auto=format&fit=crop&w=1000&q=80" class="article-img" alt="Código">
+            <p>¿Tu código no funciona? Pega el error en la IA y te dirá exactamente qué línea falla. Es el mejor copiloto para aprender Python, Java o HTML.</p>
+        </section>
 
-    <section id="art11" class="article-block">
-        <h2>11. Lectura Rápida</h2>
-        <p>La IA puede pre-leer por ti y decirte en qué capítulos del libro está la información que realmente necesitas para tu trabajo.</p>
-    </section>
+        <section id="art7" class="article-block">
+            <h2>7. Historia y Ciencias Sociales</h2>
+            <img src="https://images.unsplash.com/photo-1461360346148-a02d59703b1c?auto=format&fit=crop&w=1000&q=80" class="article-img" alt="Historia">
+            <p>Simula debates históricos. Pide a la IA que defienda una postura política de la Antigua Grecia para entender los matices de la democracia desde su origen.</p>
+        </section>
 
-    <section id="art12" class="article-block">
-        <h2>12. Redacción de Tesis</h2>
-        <p>Estructura tu índice y revisa la coherencia de tus argumentos. La IA es el revisor ortográfico más avanzado del planeta.</p>
-    </section>
+        <section id="art8" class="article-block">
+            <h2>8. Preparación de Exámenes (Flashcards)</h2>
+            <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1000&q=80" class="article-img" alt="Examen">
+            <p>Pasa tus apuntes a la IA y pídele: "Genera 15 preguntas difíciles para ponerme a prueba". Es la técnica de *Active Recall* más potente que existe.</p>
+        </section>
 
-    <section id="art13" class="article-block">
-        <h2>13. Búsqueda de Becas</h2>
-        <p>Configura prompts para encontrar becas internacionales que encajen con tu perfil académico y país de residencia.</p>
-    </section>
-</div>
+        <section id="art9" class="article-block">
+            <h2>9. Creación de Presentaciones</h2>
+            <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1000&q=80" class="article-img" alt="Presentación">
+            <p>Usa IA para generar el guion de tus diapositivas. Asegura que tu mensaje sea claro, persuasivo y que tenga una estructura profesional.</p>
+        </section>
 
-<footer>
-    <p><strong>IA Tareas Gratis</strong> - Contacto: <a href="mailto:iatareasweb@gmail.com">iatareasweb@gmail.com</a></p>
-    <div style="margin-top: 20px;">
-        <a href="privacidad.html">Privacidad</a> | <a href="cookies.html">Cookies</a> | <a href="contacto.html">Contacto</a>
+        <section id="art10" class="article-block">
+            <h2>10. Arte y Diseño para Trabajos</h2>
+            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1000&q=80" class="article-img" alt="Arte">
+            <p>Crea ilustraciones únicas para tus proyectos escolares usando generadores de imágenes por IA. Portadas impactantes que nadie más tendrá.</p>
+        </section>
+
+        <section id="art11" class="article-block">
+            <h2>11. Lectura Rápida Estratégica</h2>
+            <p>Aprende a pedir a la IA que identifique las "tesis principales" de un autor antes de empezar a leer, para que tu lectura sea mucho más enfocada.</p>
+        </section>
+
+        <section id="art12" class="article-block">
+            <h2>12. Redacción Académica y Tesis</h2>
+            <p>La IA puede ayudarte a pulir el tono de tu escritura, pasando de un lenguaje coloquial a uno académico y formal digno de una tesis universitaria.</p>
+        </section>
+
+        <section id="art13" class="article-block">
+            <h2>13. Búsqueda de Becas</h2>
+            <p>Utiliza la IA para filtrar miles de convocatorias de becas y encontrar aquellas que encajan perfectamente con tu promedio y tus metas de carrera.</p>
+        </section>
     </div>
-</footer>
+
+    <footer>
+        <p><strong>IA Tareas Gratis</strong> &copy; 2026</p>
+        <p>Contacto: <a href="mailto:iatareasweb@gmail.com">iatareasweb@gmail.com</a></p>
+        <div style="margin-top: 20px;">
+            <a href="privacidad.html">Privacidad</a> | <a href="cookies.html">Cookies</a> | <a href="contacto.html">Contacto</a>
+        </div>
+    </footer>
+
+    <script>
+        function acceptCookies() {
+            document.getElementById('cookie-banner').style.display = 'none';
+            localStorage.setItem('cookiesAccepted', 'true');
+        }
+        if(localStorage.getItem('cookiesAccepted')) {
+            document.getElementById('cookie-banner').style.display = 'none';
+        }
+    </script>
 
 </body>
 </html>
