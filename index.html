@@ -6,33 +6,315 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IA Tareas Gratis | Inicio</title>
+    <title>IA Tareas Gratis | Tu Portal de Estudio y Asistencia con IA</title>
+    <meta name="description" content="Descubre cómo la Inteligencia Artificial puede transformar tus estudios. IA Tareas Gratis te ofrece guías, herramientas y consejos para usar la IA de forma ética y eficiente en tus tareas diarias.">
+
     <style>
-        body { font-family: sans-serif; line-height: 1.6; margin: 0; background: #f4f7f6; color: #333; text-align: center; }
-        header { background: #2563eb; color: white; padding: 2rem; }
-        nav { background: #fff; padding: 1rem; border-bottom: 1px solid #ddd; }
-        nav a { margin: 0 10px; text-decoration: none; color: #2563eb; font-weight: bold; }
-        .container { max-width: 800px; margin: 2rem auto; background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-        footer { margin-top: 2rem; padding: 1rem; font-size: 0.8rem; color: #666; }
+        /* Variables CSS para facilitar cambios de color */
+        :root {
+            --primary-color: #3b82f6; /* Azul brillante */
+            --secondary-color: #10b981; /* Verde esmeralda */
+            --text-color: #1f2937; /* Gris oscuro */
+            --light-text-color: #4b5563; /* Gris medio */
+            --bg-light: #f9fafb; /* Fondo muy claro */
+            --bg-white: #ffffff; /* Blanco puro */
+            --border-color: #e5e7eb; /* Gris claro para bordes */
+            --shadow-light: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-medium: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif; /* Fuente moderna */
+            line-height: 1.7;
+            margin: 0;
+            background-color: var(--bg-light);
+            color: var(--text-color);
+            scroll-behavior: smooth;
+        }
+
+        /* Estilos globales para enlaces */
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Contenedor principal */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--primary-color);
+            color: var(--bg-white);
+            padding: 3rem 0;
+            text-align: center;
+            box-shadow: var(--shadow-medium);
+        }
+        header h1 {
+            font-size: 3.5rem;
+            margin: 0 0 0.5rem 0;
+            font-weight: 800;
+        }
+        header p {
+            font-size: 1.25rem;
+            margin: 0;
+            opacity: 0.9;
+        }
+
+        /* Navegación */
+        nav {
+            background-color: var(--bg-white);
+            padding: 1rem 0;
+            box-shadow: var(--shadow-light);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+        }
+        nav .container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+        nav a {
+            font-weight: 700;
+            font-size: 1rem;
+            padding: 0.5rem 0;
+        }
+
+        /* Sección de Héroe (Bienvenida) */
+        .hero-section {
+            background-color: var(--bg-white);
+            padding: 4rem 0;
+            text-align: center;
+            border-radius: 12px;
+            margin-top: 2rem;
+            box-shadow: var(--shadow-light);
+            animation: fadeIn 1s ease-out;
+        }
+        .hero-section h2 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .hero-section p {
+            font-size: 1.15rem;
+            max-width: 800px;
+            margin: 0 auto 1.5rem auto;
+            color: var(--light-text-color);
+        }
+        .btn-primary {
+            background-color: var(--secondary-color);
+            color: var(--bg-white);
+            padding: 0.8rem 1.8rem;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #059669; /* Un poco más oscuro */
+        }
+
+        /* Sección de Artículos */
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .article-card {
+            background-color: var(--bg-white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-light);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .article-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-medium);
+        }
+        .article-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+        .article-content {
+            padding: 1.8rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .article-content h3 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+        .article-content p {
+            font-size: 0.95rem;
+            color: var(--light-text-color);
+            margin-bottom: 1.5rem;
+            flex-grow: 1; /* Permite que el párrafo ocupe el espacio */
+        }
+        .read-more {
+            display: inline-block;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* Sección de Contacto/Legal */
+        .legal-section {
+            background-color: var(--bg-white);
+            padding: 3rem;
+            border-radius: 12px;
+            margin-top: 4rem;
+            box-shadow: var(--shadow-light);
+            text-align: center;
+        }
+        .legal-section h3 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        .legal-section p {
+            font-size: 1rem;
+            color: var(--light-text-color);
+            margin-bottom: 0.8rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-color);
+            color: var(--bg-white);
+            padding: 2.5rem 0;
+            text-align: center;
+            margin-top: 4rem;
+            font-size: 0.9rem;
+        }
+
+        /* Animaciones */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+            header p {
+                font-size: 1rem;
+            }
+            .hero-section h2 {
+                font-size: 2rem;
+            }
+            .articles-grid {
+                grid-template-columns: 1fr;
+            }
+            nav .container {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            nav a {
+                padding: 0.5rem 0;
+            }
+        }
     </style>
 </head>
 <body>
+
     <header>
-        <h1>IA Tareas Gratis</h1>
-        <p>Tu sitio de confianza para aprender con Inteligencia Artificial</p>
+        <div class="container">
+            <h1>IA Tareas Gratis</h1>
+            <p>Tu aliado inteligente para un aprendizaje sin límites.</p>
+        </div>
     </header>
+
     <nav>
-        <a href="index.html">Inicio</a>
-        <a href="privacidad.html">Privacidad</a>
-        <a href="cookies.html">Cookies</a>
-        <a href="contacto.html">Contacto</a>
+        <div class="container">
+            <a href="#inicio">Inicio</a>
+            <a href="#articulos">Artículos</a>
+            <a href="privacidad.html">Privacidad</a>
+            <a href="cookies.html">Cookies</a>
+            <a href="contacto.html">Contacto</a>
+        </div>
     </nav>
-    <div class="container">
-        <h2>Bienvenido a la educación del futuro</h2>
-        <p>Estamos preparando el mejor contenido educativo para este 2026. Aprende a usar la IA para resolver tus tareas de forma eficiente y gratuita.</p>
-    </div>
+
+    <main class="container">
+        <section id="inicio" class="hero-section">
+            <h2>Transforma tu forma de estudiar con Inteligencia Artificial</h2>
+            <p>Descubre las herramientas, estrategias y consejos más efectivos para integrar la IA en tu rutina de estudio. Desde la resolución de problemas hasta la creación de resúmenes, IA Tareas Gratis te guiará paso a paso.</p>
+            <a href="#articulos" class="btn-primary">Explorar Artículos</a>
+        </section>
+
+        <section id="articulos">
+            <h2>Nuestros Últimos Artículos</h2>
+            <div class="articles-grid">
+
+                <article class="article-card">
+                    <img src="https://images.unsplash.com/photo-1579781403267-9d7a26f0269f?auto=format&fit=crop&q=80&w=600" alt="Estudiante resolviendo matemáticas con IA">
+                    <div class="article-content">
+                        <h3>Dominando las Matemáticas con ChatGPT y Otras IAs</h3>
+                        <p>Las matemáticas ya no son un dolor de cabeza. Explora cómo ChatGPT, Wolfram Alpha y otras herramientas de IA pueden desglosar problemas complejos, ofrecer explicaciones paso a paso y ayudarte a comprender los conceptos fundamentales, no solo a obtener respuestas. Aprende los prompts clave para optimizar tu estudio de álgebra, cálculo y geometría.</p>
+                        <a href="#" class="read-more">Leer más &rarr;</a>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <img src="https://images.unsplash.com/photo-1549692520-acc666928e1d?auto=format&fit=crop&q=80&w=600" alt="Persona escribiendo en un teclado, IA generando texto">
+                    <div class="article-content">
+                        <h3>Cómo Escribir Ensayos Perfectos y Resúmenes Eficaces con IA</h3>
+                        <p>Mejora tus habilidades de redacción y comprensión lectora utilizando la IA. Este artículo detalla cómo generar esquemas de ensayo, depurar tu prosa, traducir textos y resumir documentos extensos en cuestión de segundos. Descubre las mejores prácticas para evitar el plagio y usar la IA como un asistente de escritura, no como un sustituto.</p>
+                        <a href="#" class="read-more">Leer más &rarr;</a>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <img src="https://images.unsplash.com/photo-1559136544-d92257e5b5e7?auto=format&fit=crop&q=80&w=600" alt="Libros y un ordenador con símbolos éticos">
+                    <div class="article-content">
+                        <h3>La Ética de la IA en la Educación: Uso Responsable y Transparencia</h3>
+                        <p>La integración de la IA en la educación plantea importantes preguntas éticas. Discutimos la importancia de la honestidad académica, cómo citar correctamente el uso de herramientas de IA y las implicaciones de depender demasiado de la tecnología. Conoce los límites y las responsabilidades al incorporar la IA en tu proceso de aprendizaje.</p>
+                        <a href="#" class="read-more">Leer más &rarr;</a>
+                    </div>
+                </article>
+
+                <article class="article-card">
+                    <img src="https://images.unsplash.com/photo-1522204523234-8729aa6e3d5a?auto=format&fit=crop&q=80&w=600" alt="Estudiantes en un laboratorio de informática">
+                    <div class="article-content">
+                        <h3>Las Mejores Herramientas de IA Gratuitas para Estudiantes en 2026</h3>
+                        <p>Mantente al día con las últimas innovaciones. Te presentamos una selección curada de las herramientas de IA más prometedoras y gratuitas para estudiantes en 2026. Desde plataformas para organizar tu calendario de estudios hasta generadores de ideas para proyectos, optimiza tu tiempo y esfuerzo con estas aplicaciones esenciales.</p>
+                        <a href="#" class="read-more">Leer más &rarr;</a>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <section class="legal-section">
+            <h3>Información Legal y Contacto</h3>
+            <p><strong>Email de Contacto:</strong> iatareasweb@gmail.com</p>
+            <p>Consulta nuestras <a href="privacidad.html">Políticas de Privacidad</a> y <a href="cookies.html">Uso de Cookies</a> para más información sobre cómo manejamos tus datos y la publicidad.</p>
+        </section>
+    </main>
+
     <footer>
-        <p>&copy; 2026 IA Tareas Gratis</p>
+        <div class="container">
+            <p>&copy; 2026 IA Tareas Gratis. Todos los derechos reservados.</p>
+            <p>Optimizado para Google AdSense.</p>
+        </div>
     </footer>
+
 </body>
 </html>
