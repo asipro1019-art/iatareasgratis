@@ -3,93 +3,159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IA Tareas Gratis | Guías para Estudiantes</title>
+    <title>IA Tareas Gratis | El Portal #1 de Inteligencia Artificial Educativa</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        :root { --primary: #0f172a; --accent: #2563eb; --bg: #f8fafc; --text: #1e293b; }
+        :root { --primary: #0f172a; --accent: #2563eb; --bg: #f8fafc; --text: #1e293b; --card-bg: #ffffff; }
         html { scroll-behavior: smooth; }
-        body { font-family: 'Poppins', sans-serif; margin: 0; background: var(--bg); color: var(--text); line-height: 1.6; }
+        body { font-family: 'Poppins', sans-serif; margin: 0; background: var(--bg); color: var(--text); line-height: 1.7; }
         
-        header { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); color: white; padding: 80px 20px; text-align: center; clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%); }
-        header h1 { margin: 0; font-size: 3rem; }
-        
-        nav { background: white; padding: 20px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
-        nav a { margin: 0 15px; text-decoration: none; color: var(--primary); font-weight: 600; }
+        /* Header Impactante */
+        header { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); color: white; padding: 100px 20px; text-align: center; clip-path: polygon(0 0, 100% 0, 100% 95%, 0% 100%); }
+        header h1 { margin: 0; font-size: 3.5rem; font-weight: 700; }
+        header p { opacity: 0.9; font-size: 1.3rem; max-width: 800px; margin: 20px auto; font-weight: 300; }
 
-        .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+        /* Navegación Pro */
+        nav { background: rgba(255, 255, 255, 0.98); padding: 15px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; display: flex; justify-content: center; flex-wrap: wrap; }
+        nav a { margin: 5px 15px; text-decoration: none; color: var(--primary); font-weight: 600; font-size: 0.9rem; transition: 0.3s; }
+        nav a:hover { color: var(--accent); }
+
+        .container { max-width: 1100px; margin: 50px auto; padding: 0 20px; }
         
-        /* Grid de Tarjetas */
+        /* Grid de Artículos (Cards) */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-bottom: 80px; }
-        .card { background: white; border-radius: 20px; padding: 30px; box-shadow: 0 10px 15px rgba(0,0,0,0.05); border-top: 5px solid var(--accent); transition: 0.3s; }
-        .card:hover { transform: translateY(-10px); }
+        .card { background: var(--card-bg); border-radius: 15px; padding: 30px; box-shadow: 0 10px 20px rgba(0,0,0,0.04); border-bottom: 4px solid transparent; transition: 0.4s; text-decoration: none; color: inherit; }
+        .card:hover { transform: translateY(-10px); border-bottom-color: var(--accent); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+        .card h3 { color: var(--primary); margin-top: 0; font-size: 1.3rem; }
+        .card p { font-size: 0.9rem; color: #64748b; }
+
+        /* Secciones de Contenido Extendido */
+        .article-block { background: white; padding: 60px; border-radius: 25px; margin-top: 40px; box-shadow: 0 4px 10px rgba(0,0,0,0.02); border: 1px solid #f1f5f9; }
+        .article-block h2 { color: var(--primary); font-size: 2.2rem; border-left: 6px solid var(--accent); padding-left: 20px; margin-bottom: 30px; }
+        .article-block h3 { color: var(--accent); margin-top: 30px; }
         
-        .btn { display: inline-block; background: var(--accent); color: white; padding: 12px 25px; text-decoration: none; border-radius: 10px; font-weight: 600; margin-top: 20px; }
+        .ad-placeholder { background: #f1f5f9; padding: 30px; text-align: center; border-radius: 12px; margin: 40px 0; color: #94a3b8; border: 2px dashed #cbd5e1; font-weight: 600; }
 
-        /* Secciones de Contenido (Artículos) */
-        .article-section { background: white; padding: 50px; border-radius: 20px; margin-top: 50px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-        h2 { color: var(--primary); font-size: 2rem; }
-        .ad-space { background: #f1f5f9; padding: 20px; text-align: center; border-radius: 10px; margin: 20px 0; color: #94a3b8; border: 1px dashed #cbd5e1; font-size: 0.8rem; }
-
-        footer { text-align: center; padding: 60px 20px; background: white; margin-top: 80px; border-top: 1px dashed #e2e8f0; }
+        footer { text-align: center; padding: 80px 20px; background: var(--primary); color: white; margin-top: 100px; }
+        .footer-links a { color: #94a3b8; text-decoration: none; margin: 0 10px; font-size: 0.9rem; }
+        
+        @media (max-width: 768px) { header h1 { font-size: 2.5rem; } .article-block { padding: 30px; } }
     </style>
 </head>
 <body>
 
     <header>
         <h1>IA Tareas Gratis</h1>
-        <p>Domina tus estudios con el poder de la Inteligencia Artificial</p>
+        <p>La enciclopedia definitiva para estudiantes que utilizan Inteligencia Artificial de forma estratégica y brillante.</p>
     </header>
 
     <nav>
-        <a href="#">Inicio</a>
-        <a href="#estudiantes">IA Estudiantes</a>
-        <a href="#tareas">Hacer Tareas</a>
-        <a href="#resumir">Resumir Textos</a>
-        <a href="contacto.html">Contacto</a>
+        <a href="#">INICIO</a>
+        <a href="#guia-estudiantes">GUÍA ESTUDIANTES</a>
+        <a href="#hacer-tareas">TAREAS PRO</a>
+        <a href="#resumir-textos">RESÚMENES</a>
+        <a href="#mates-ia">MATEMÁTICAS</a>
+        <a href="#ingles-ia">INGLÉS</a>
+        <a href="contacto.html">CONTACTO</a>
     </nav>
 
     <div class="container">
+        
+        <div class="ad-placeholder">ZONA DE ANUNCIO SUPERIOR (ADSENSE)</div>
+
         <div class="grid">
-            <div class="card">
-                <h3>IA para Estudiantes</h3>
-                <p>Las mejores herramientas para organizar tu vida académica.</p>
-                <a href="#estudiantes" class="btn">Leer Guía</a>
-            </div>
-            <div class="card">
-                <h3>Hacer Tareas con IA</h3>
-                <p>Aprende a resolver dudas complejas de forma ética y rápida.</p>
-                <a href="#tareas" class="btn">Ver Métodos</a>
-            </div>
-            <div class="card">
-                <h3>Resumir Textos</h3>
-                <p>Extrae lo más importante de cualquier documento en segundos.</p>
-                <a href="#resumir" class="btn">Empezar ahora</a>
-            </div>
+            <a href="#guia-estudiantes" class="card"><h3>🎓 IA para Estudiantes</h3><p>Optimización de tiempo y organización académica.</p></a>
+            <a href="#hacer-tareas" class="card"><h3>✍️ Hacer Tareas con IA</h3><p>Técnicas de redacción y resolución de dudas.</p></a>
+            <a href="#resumir-textos" class="card"><h3>📑 Resumir Textos</h3><p>Análisis profundo de documentos en segundos.</p></a>
+            <a href="#mates-ia" class="card"><h3>🔢 Matemáticas con IA</h3><p>Resolución paso a paso de problemas complejos.</p></a>
+            <a href="#ingles-ia" class="card"><h3>🌍 Aprender Inglés</h3><p>Tutoría personalizada 24/7 para idiomas.</p></a>
+            <a href="#programacion-ia" class="card"><h3>💻 Programación</h3><p>Aprende a programar con copilotos inteligentes.</p></a>
         </div>
 
-        <div class="ad-space">PUBLICIDAD (ADSENSE)</div>
-
-        <section id="estudiantes" class="article-section">
-            <h2>IA para Estudiantes: Optimiza tu Tiempo</h2>
-            <p>La inteligencia artificial no es solo para copiar tareas, es para aprender mejor. Herramientas como ChatGPT, Claude o Perplexity pueden ayudarte a crear planes de estudio personalizados y explicarte conceptos difíciles de entender.</p>
-            <p><strong>Tip pro:</strong> Pide a la IA que actúe como un tutor experto en la materia que estás estudiando.</p>
+        <section id="guia-estudiantes" class="article-block">
+            <h2>1. IA para Estudiantes: El Nuevo Modelo Educativo</h2>
+            <p>La inteligencia artificial ha dejado de ser una novedad para convertirse en el tutor personal más potente del mundo. Un estudiante moderno no usa la IA para "copiar", sino para expandir su capacidad cognitiva.</p>
+            <h3>Organización con IA</h3>
+            <p>Plataformas como Notion IA permiten crear calendarios de estudio basados en la dificultad de tus materias. Puedes pedirle: "Crea un plan de estudio de 4 semanas para mi examen de Biología Celular, priorizando los temas más difíciles".</p>
+            <h3>Tutoría 24/7</h3>
+            <p>A diferencia de un profesor, la IA no se cansa. Puedes preguntarle 50 veces la misma duda sobre la fotosíntesis hasta que lo entiendas perfectamente.</p>
         </section>
 
-        <section id="tareas" class="article-section">
-            <h2>Cómo Hacer Tareas con Inteligencia Artificial</h2>
-            <p>Para usar la IA correctamente en tus trabajos, enfócate en la investigación. Úsala para generar esquemas de contenido o para corregir la gramática de tus textos. Esto garantiza que el trabajo siga siendo tuyo pero con una calidad profesional.</p>
-            <div class="ad-space">PUBLICIDAD (ADSENSE)</div>
+        <section id="hacer-tareas" class="article-block">
+            <h2>2. Cómo Hacer Tareas con IA de Forma Ética</h2>
+            <p>El secreto para entregar trabajos excelentes es el <strong>Prompting</strong>. No le pidas "Hazme un trabajo sobre la Revolución Francesa". Pídele: "Actúa como un historiador y genera un esquema detallado sobre las causas económicas de la Revolución Francesa, incluyendo datos que no sean comunes".</p>
+            <div class="ad-placeholder">ANUNCIO INTERMEDIO</div>
+            <h3>Verificación de Datos</h3>
+            <p>Usa herramientas como Perplexity para tareas que requieran fuentes reales. La IA te dará el contenido y el enlace a la fuente original para que puedas citarla correctamente en tu bibliografía.</p>
         </section>
 
-        <section id="resumir" class="article-section">
-            <h2>Resumir Textos con IA: La Guía Definitiva</h2>
-            <p>¿Tienes 50 páginas para leer? Sube el PDF a herramientas como ChatPDF o usa plugins de resumen. Lo ideal es pedirle un "resumen por puntos clave" para no perder los detalles importantes de la lectura.</p>
+        <section id="resumir-textos" class="article-block">
+            <h2>3. Resumen Inteligente de Textos</h2>
+            <p>Ya no es necesario leer 200 páginas para entender el concepto central. Herramientas de "Chat con PDF" permiten subir archivos completos y hacer preguntas específicas.</p>
+            <h3>Técnica del Resumen Inverso</h3>
+            <p>Pide a la IA que genere un examen de 10 preguntas basado en el texto que acabas de resumir. Si puedes responderlas, el resumen fue efectivo.</p>
         </section>
+
+        <section id="mates-ia" class="article-block">
+            <h2>4. Matemáticas y Física con IA</h2>
+            <p>Modelos como GPT-4o o Photomath ahora explican el "por qué" de cada paso en una ecuación, ideal para álgebra y cálculo avanzado.</p>
+        </section>
+
+        <section id="ingles-ia" class="article-block">
+            <h2>5. Dominando el Inglés con IA</h2>
+            <p>Practica tu speaking hablando con la voz de ChatGPT. Es como tener un nativo en casa que te corrige la pronunciación y la gramática al instante.</p>
+        </section>
+
+        <section id="programacion-ia" class="article-block">
+            <h2>6. Programación para Principiantes</h2>
+            <p>¿Atascado en Python o C++? La IA puede explicarte qué hace cada línea de código y ayudarte a encontrar errores (debugging) en milisegundos.</p>
+        </section>
+
+        <section id="historia-ia" class="article-block">
+            <h2>7. Historia y Ciencias Sociales</h2>
+            <p>Convierte la historia en una entrevista. Pide a la IA: "Actúa como Napoleón Bonaparte y explícame por qué decidiste invadir Rusia".</p>
+        </section>
+
+        <section id="presentaciones-ia" class="article-block">
+            <h2>8. Creación de Diapositivas en Segundos</h2>
+            <p>Usa Gamma o Tome para convertir un texto simple en una presentación visual profesional para tus exposiciones escolares.</p>
+        </section>
+
+        <section id="tesis-ia" class="article-block">
+            <h2>9. Apoyo en Tesis y Proyectos Finales</h2>
+            <p>La IA ayuda a estructurar el índice, definir la metodología y revisar que el tono del texto sea académico y formal.</p>
+        </section>
+
+        <section id="creatividad-ia" class="article-block">
+            <h2>10. Arte y Diseño para Trabajos</h2>
+            <p>Genera imágenes únicas con Midjourney o DALL-E para ilustrar tus portadas y proyectos sin preocuparte por el copyright.</p>
+        </section>
+
+        <section id="lectura-ia" class="article-block">
+            <h2>11. Velocidad de Lectura Aumentada</h2>
+            <p>Aprende técnicas para que la IA extraiga glosarios de términos clave antes de que empieces a leer un libro técnico.</p>
+        </section>
+
+        <section id="examenes-ia" class="article-block">
+            <h2>12. Simulador de Exámenes</h2>
+            <p>Pega tus apuntes y pide: "Hazme un examen tipo test de 20 preguntas con retroalimentación inmediata". Es la mejor forma de estudiar.</p>
+        </section>
+
+        <section id="becas-ia" class="article-block">
+            <h2>13. Búsqueda de Becas y Oportunidades</h2>
+            <p>Configura a la IA para que rastree convocatorias de becas internacionales que se ajusten a tu perfil académico.</p>
+        </section>
+
     </div>
 
     <footer>
-        <p><strong>IA Tareas Gratis</strong> &copy; 2026</p>
-        <p style="font-size: 0.8rem; color: #64748b;">Privacidad | Cookies | <a href="contacto.html" style="color: #64748b;">Contacto</a></p>
+        <p><strong>IA Tareas Gratis</strong> - Elevando el potencial humano con tecnología.</p>
+        <div class="footer-links">
+            <a href="privacidad.html">Privacidad</a> | 
+            <a href="cookies.html">Cookies</a> | 
+            <a href="contacto.html">Contacto</a>
+        </div>
+        <p style="margin-top: 20px; font-size: 0.7rem; color: #64748b;">&copy; 2026 Todos los derechos reservados.</p>
     </footer>
 
 </body>
