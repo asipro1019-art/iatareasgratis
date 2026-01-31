@@ -3,218 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IA Tareas Gratis | Guías Inteligentes para Estudiantes</title>
+    <title>IA Tareas Gratis | Guías para Estudiantes</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary: #0f172a;
-            --accent: #2563eb;
-            --accent-hover: #1d4ed8;
-            --text-main: #1e293b;
-            --text-muted: #64748b;
-            --bg: #f8fafc;
-        }
+        :root { --primary: #0f172a; --accent: #2563eb; --bg: #f8fafc; --text: #1e293b; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Poppins', sans-serif; margin: 0; background: var(--bg); color: var(--text); line-height: 1.6; }
+        
+        header { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); color: white; padding: 80px 20px; text-align: center; clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%); }
+        header h1 { margin: 0; font-size: 3rem; }
+        
+        nav { background: white; padding: 20px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
+        nav a { margin: 0 15px; text-decoration: none; color: var(--primary); font-weight: 600; }
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            background-color: var(--bg);
-            color: var(--text-main);
-            line-height: 1.6;
-        }
+        .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+        
+        /* Grid de Tarjetas */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-bottom: 80px; }
+        .card { background: white; border-radius: 20px; padding: 30px; box-shadow: 0 10px 15px rgba(0,0,0,0.05); border-top: 5px solid var(--accent); transition: 0.3s; }
+        .card:hover { transform: translateY(-10px); }
+        
+        .btn { display: inline-block; background: var(--accent); color: white; padding: 12px 25px; text-decoration: none; border-radius: 10px; font-weight: 600; margin-top: 20px; }
 
-        /* Cabecera Moderna */
-        header {
-            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-            color: white;
-            padding: 80px 20px;
-            text-align: center;
-            clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
-        }
+        /* Secciones de Contenido (Artículos) */
+        .article-section { background: white; padding: 50px; border-radius: 20px; margin-top: 50px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        h2 { color: var(--primary); font-size: 2rem; }
+        .ad-space { background: #f1f5f9; padding: 20px; text-align: center; border-radius: 10px; margin: 20px 0; color: #94a3b8; border: 1px dashed #cbd5e1; font-size: 0.8rem; }
 
-        header h1 { margin: 0; font-size: 3rem; font-weight: 700; letter-spacing: -1px; }
-        header p { opacity: 0.9; font-size: 1.2rem; max-width: 700px; margin: 20px auto; font-weight: 300; }
-
-        /* Navegación */
-        nav {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        nav a {
-            margin: 0 20px;
-            text-decoration: none;
-            color: var(--primary);
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: color 0.3s;
-        }
-
-        nav a:hover { color: var(--accent); }
-
-        .container {
-            max-width: 1200px;
-            margin: 60px auto;
-            padding: 0 25px;
-        }
-
-        /* Banner de AdSense */
-        .ad-banner {
-            background: #ffffff;
-            border: 2px dashed #cbd5e1;
-            padding: 30px;
-            text-align: center;
-            margin-bottom: 50px;
-            border-radius: 12px;
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* Grid de Artículos */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-        }
-
-        .card {
-            background: white;
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            display: flex;
-            flex-direction: column;
-            border: 1px solid #f1f5f9;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 6px;
-            background: var(--accent);
-        }
-
-        .card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.1);
-        }
-
-        .card h3 { 
-            margin-top: 0; 
-            color: var(--primary); 
-            font-size: 1.6rem;
-            margin-bottom: 15px;
-        }
-
-        .card p { color: var(--text-muted); font-size: 1rem; flex-grow: 1; }
-
-        /* Botones de Acción */
-        .btn {
-            display: inline-block;
-            background: var(--accent);
-            color: white;
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 12px;
-            font-weight: 600;
-            text-align: center;
-            margin-top: 25px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 14px 0 rgba(37, 99, 235, 0.39);
-        }
-
-        .btn:hover { 
-            background: var(--accent-hover);
-            transform: scale(1.05);
-        }
-
-        footer {
-            background: white;
-            text-align: center;
-            padding: 60px 20px;
-            margin-top: 100px;
-            border-top: 1px dashed #e2e8f0;
-        }
-
-        .footer-links { margin-top: 20px; }
-        .footer-links a {
-            margin: 0 15px;
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.2s;
-        }
-
-        .footer-links a:hover { color: var(--accent); }
-
-        @media (max-width: 768px) {
-            header h1 { font-size: 2.2rem; }
-            .grid { grid-template-columns: 1fr; }
-        }
+        footer { text-align: center; padding: 60px 20px; background: white; margin-top: 80px; border-top: 1px dashed #e2e8f0; }
     </style>
 </head>
 <body>
 
     <header>
         <h1>IA Tareas Gratis</h1>
-        <p>Tu plataforma número uno para dominar la inteligencia artificial en el mundo académico. ¡Aprende más, estudia menos!</p>
+        <p>Domina tus estudios con el poder de la Inteligencia Artificial</p>
     </header>
 
     <nav>
-        <a href="index.html">Inicio</a>
-        <a href="#articulos">Herramientas</a>
+        <a href="#">Inicio</a>
+        <a href="#estudiantes">IA Estudiantes</a>
+        <a href="#tareas">Hacer Tareas</a>
+        <a href="#resumir">Resumir Textos</a>
         <a href="contacto.html">Contacto</a>
     </nav>
 
     <div class="container">
-        
-        <div class="ad-banner">
-            Espacio optimizado para publicidad (Google AdSense)
+        <div class="grid">
+            <div class="card">
+                <h3>IA para Estudiantes</h3>
+                <p>Las mejores herramientas para organizar tu vida académica.</p>
+                <a href="#estudiantes" class="btn">Leer Guía</a>
+            </div>
+            <div class="card">
+                <h3>Hacer Tareas con IA</h3>
+                <p>Aprende a resolver dudas complejas de forma ética y rápida.</p>
+                <a href="#tareas" class="btn">Ver Métodos</a>
+            </div>
+            <div class="card">
+                <h3>Resumir Textos</h3>
+                <p>Extrae lo más importante de cualquier documento en segundos.</p>
+                <a href="#resumir" class="btn">Empezar ahora</a>
+            </div>
         </div>
 
-        <section id="articulos">
-            <h2 style="text-align: center; font-size: 2.2rem; margin-bottom: 50px;">Guías Especializadas</h2>
-            
-            <div class="grid">
-                <div class="card">
-                    <h3>IA para Estudiantes</h3>
-                    <p>Organiza tu calendario, genera apuntes y optimiza tu tiempo de estudio con las mejores IAs del mercado.</p>
-                    <a href="ia-para-estudiantes.html" class="btn">Abrir Guía</a>
-                </div>
+        <div class="ad-space">PUBLICIDAD (ADSENSE)</div>
 
-                <div class="card">
-                    <h3>Hacer Tareas con IA</h3>
-                    <p>Resolución de problemas complejos y redacción de trabajos originales usando prompts de alta precisión.</p>
-                    <a href="ia-para-hacer-tareas.html" class="btn">Ver Métodos</a>
-                </div>
+        <section id="estudiantes" class="article-section">
+            <h2>IA para Estudiantes: Optimiza tu Tiempo</h2>
+            <p>La inteligencia artificial no es solo para copiar tareas, es para aprender mejor. Herramientas como ChatGPT, Claude o Perplexity pueden ayudarte a crear planes de estudio personalizados y explicarte conceptos difíciles de entender.</p>
+            <p><strong>Tip pro:</strong> Pide a la IA que actúe como un tutor experto en la materia que estás estudiando.</p>
+        </section>
 
-                <div class="card">
-                    <h3>Resumir Textos con IA</h3>
-                    <p>Extrae la esencia de cualquier documento o libro en segundos sin perder los detalles importantes.</p>
-                    <a href="ia-para-resumir-textos.html" class="btn">Comenzar Ahora</a>
-                </div>
-            </div>
+        <section id="tareas" class="article-section">
+            <h2>Cómo Hacer Tareas con Inteligencia Artificial</h2>
+            <p>Para usar la IA correctamente en tus trabajos, enfócate en la investigación. Úsala para generar esquemas de contenido o para corregir la gramática de tus textos. Esto garantiza que el trabajo siga siendo tuyo pero con una calidad profesional.</p>
+            <div class="ad-space">PUBLICIDAD (ADSENSE)</div>
+        </section>
+
+        <section id="resumir" class="article-section">
+            <h2>Resumir Textos con IA: La Guía Definitiva</h2>
+            <p>¿Tienes 50 páginas para leer? Sube el PDF a herramientas como ChatPDF o usa plugins de resumen. Lo ideal es pedirle un "resumen por puntos clave" para no perder los detalles importantes de la lectura.</p>
         </section>
     </div>
 
     <footer>
-        <p><strong>IA Tareas Gratis</strong> &copy; 2026. Diseñado para el éxito escolar.</p>
-        <div class="footer-links">
-            <a href="privacidad.html">Privacidad</a>
-            <a href="cookies.html">Cookies</a>
-            <a href="contacto.html">Contacto</a>
-        </div>
+        <p><strong>IA Tareas Gratis</strong> &copy; 2026</p>
+        <p style="font-size: 0.8rem; color: #64748b;">Privacidad | Cookies | <a href="contacto.html" style="color: #64748b;">Contacto</a></p>
     </footer>
 
 </body>
