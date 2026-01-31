@@ -3,142 +3,163 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IA Tareas Gratis | Tu Guía de Inteligencia Artificial</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>IA Tareas Gratis | Guías Inteligentes para Estudiantes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #0f172a;
             --accent: #2563eb;
+            --accent-hover: #1d4ed8;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
             --bg: #f8fafc;
-            --text: #1e293b;
         }
 
         body {
             font-family: 'Poppins', sans-serif;
             margin: 0;
             background-color: var(--bg);
-            color: var(--text);
+            color: var(--text-main);
             line-height: 1.6;
         }
 
-        /* Cabecera con Degradado */
+        /* Cabecera Moderna */
         header {
             background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
             color: white;
-            padding: 60px 20px;
+            padding: 80px 20px;
             text-align: center;
-            border-bottom: 4px solid var(--accent);
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
         }
 
-        header h1 { margin: 0; font-size: 2.8rem; letter-spacing: -1px; }
-        header p { opacity: 0.8; font-size: 1.1rem; max-width: 600px; margin: 15px auto; }
+        header h1 { margin: 0; font-size: 3rem; font-weight: 700; letter-spacing: -1px; }
+        header p { opacity: 0.9; font-size: 1.2rem; max-width: 700px; margin: 20px auto; font-weight: 300; }
 
         /* Navegación */
         nav {
-            background: white;
-            padding: 15px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px;
             text-align: center;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
             position: sticky;
             top: 0;
             z-index: 1000;
         }
 
         nav a {
-            margin: 0 15px;
+            margin: 0 20px;
             text-decoration: none;
             color: var(--primary);
             font-weight: 600;
+            font-size: 0.95rem;
             transition: color 0.3s;
         }
 
         nav a:hover { color: var(--accent); }
 
         .container {
-            max-width: 1100px;
-            margin: 40px auto;
-            padding: 0 20px;
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 25px;
         }
 
-        /* Sección de Anuncio (Para AdSense) */
-        .ads-placeholder {
-            background: #e2e8f0;
+        /* Banner de AdSense */
+        .ad-banner {
+            background: #ffffff;
             border: 2px dashed #cbd5e1;
-            padding: 20px;
+            padding: 30px;
             text-align: center;
-            margin-bottom: 40px;
-            border-radius: 8px;
-            color: #64748b;
-            font-size: 0.9rem;
+            margin-bottom: 50px;
+            border-radius: 12px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        /* Cuadrícula de Artículos */
+        /* Grid de Artículos */
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
         }
 
         .card {
             background: white;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             display: flex;
             flex-direction: column;
             border: 1px solid #f1f5f9;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 6px;
+            background: var(--accent);
         }
 
         .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.1);
         }
 
         .card h3 { 
             margin-top: 0; 
             color: var(--primary); 
-            font-size: 1.4rem;
+            font-size: 1.6rem;
+            margin-bottom: 15px;
         }
 
-        .card p { color: #64748b; font-size: 0.95rem; flex-grow: 1; }
+        .card p { color: var(--text-muted); font-size: 1rem; flex-grow: 1; }
 
-        /* Botones */
+        /* Botones de Acción */
         .btn {
             display: inline-block;
             background: var(--accent);
             color: white;
-            padding: 12px 25px;
+            padding: 15px 30px;
             text-decoration: none;
-            border-radius: 8px;
+            border-radius: 12px;
             font-weight: 600;
             text-align: center;
-            margin-top: 20px;
-            transition: background 0.3s;
+            margin-top: 25px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 14px 0 rgba(37, 99, 235, 0.39);
         }
 
-        .btn:hover { background: #1d4ed8; }
+        .btn:hover { 
+            background: var(--accent-hover);
+            transform: scale(1.05);
+        }
 
         footer {
             background: white;
             text-align: center;
-            padding: 40px 20px;
-            margin-top: 60px;
-            border-top: 1px solid #e2e8f0;
+            padding: 60px 20px;
+            margin-top: 100px;
+            border-top: 1px dashed #e2e8f0;
         }
 
+        .footer-links { margin-top: 20px; }
         .footer-links a {
-            margin: 0 10px;
-            color: #64748b;
+            margin: 0 15px;
+            color: var(--text-muted);
             text-decoration: none;
             font-size: 0.9rem;
+            transition: color 0.2s;
         }
 
-        .footer-links a:hover { text-decoration: underline; }
+        .footer-links a:hover { color: var(--accent); }
 
-        /* Responsive */
-        @media (max-width: 600px) {
-            header h1 { font-size: 2rem; }
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.2rem; }
             .grid { grid-template-columns: 1fr; }
         }
     </style>
@@ -147,48 +168,48 @@
 
     <header>
         <h1>IA Tareas Gratis</h1>
-        <p>Herramientas y guías de inteligencia artificial para estudiantes que quieren mejores notas en menos tiempo.</p>
+        <p>Tu plataforma número uno para dominar la inteligencia artificial en el mundo académico. ¡Aprende más, estudia menos!</p>
     </header>
 
     <nav>
         <a href="index.html">Inicio</a>
-        <a href="#articulos">Artículos</a>
+        <a href="#articulos">Herramientas</a>
         <a href="contacto.html">Contacto</a>
     </nav>
 
     <div class="container">
         
-        <div class="ads-placeholder">
-            Espacio para anuncio (AdSense)
+        <div class="ad-banner">
+            Espacio optimizado para publicidad (Google AdSense)
         </div>
 
         <section id="articulos">
-            <h2 style="text-align: center; margin-bottom: 40px;">Artículos Destacados</h2>
+            <h2 style="text-align: center; font-size: 2.2rem; margin-bottom: 50px;">Guías Especializadas</h2>
             
             <div class="grid">
                 <div class="card">
                     <h3>IA para Estudiantes</h3>
-                    <p>Las mejores herramientas gratuitas para organizar tus estudios y aprender más rápido con ayuda de la IA.</p>
-                    <a href="ia-para-estudiantes.html" class="btn">Leer Guía</a>
+                    <p>Organiza tu calendario, genera apuntes y optimiza tu tiempo de estudio con las mejores IAs del mercado.</p>
+                    <a href="ia-para-estudiantes.html" class="btn">Abrir Guía</a>
                 </div>
 
                 <div class="card">
                     <h3>Hacer Tareas con IA</h3>
-                    <p>Cómo usar prompts inteligentes para resolver dudas, hacer trabajos y mejorar tu redacción escolar.</p>
+                    <p>Resolución de problemas complejos y redacción de trabajos originales usando prompts de alta precisión.</p>
                     <a href="ia-para-hacer-tareas.html" class="btn">Ver Métodos</a>
                 </div>
 
                 <div class="card">
                     <h3>Resumir Textos con IA</h3>
-                    <p>¿Libros largos? Aprende a extraer las ideas principales en segundos con estas plataformas gratuitas.</p>
-                    <a href="ia-para-resumir-textos.html" class="btn">Empezar a Resumir</a>
+                    <p>Extrae la esencia de cualquier documento o libro en segundos sin perder los detalles importantes.</p>
+                    <a href="ia-para-resumir-textos.html" class="btn">Comenzar Ahora</a>
                 </div>
             </div>
         </section>
     </div>
 
     <footer>
-        <p><strong>IA Tareas Gratis</strong> &copy; 2026</p>
+        <p><strong>IA Tareas Gratis</strong> &copy; 2026. Diseñado para el éxito escolar.</p>
         <div class="footer-links">
             <a href="privacidad.html">Privacidad</a>
             <a href="cookies.html">Cookies</a>
@@ -198,22 +219,3 @@
 
 </body>
 </html>
-<div class="grid">
-    <div class="card">
-        <h3>IA para Estudiantes</h3>
-        <p>Las mejores herramientas gratuitas para organizar tus estudios.</p>
-        <a href="ia-para-estudiantes.html" class="btn">Leer Guía</a>
-    </div>
-
-    <div class="card">
-        <h3>Hacer Tareas con IA</h3>
-        <p>Cómo usar prompts inteligentes para resolver dudas y trabajos.</p>
-        <a href="ia-para-hacer-tareas.html" class="btn">Ver Métodos</a>
-    </div>
-
-    <div class="card">
-        <h3>Resumir Textos con IA</h3>
-        <p>Aprende a extraer las ideas principales en segundos.</p>
-        <a href="ia-para-resumir-textos.html" class="btn">Empezar a Resumir</a>
-    </div>
-</div>
